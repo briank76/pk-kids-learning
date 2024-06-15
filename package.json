@@ -3,9 +3,10 @@
   "version": "1.0.3",
   "description": "simple learning software for pre-k thru first grade",
   "scripts": {
-    "build-dev": "npx parcel src/index.html --dist-dir development -p 3000",
-    "build-prod": "npx parcel build src/index.html --dist-dir public",
+    "build-dev": "npm run lint && npx parcel src/index.html --dist-dir development -p 3000",
+    "build-prod": "npm run lint && npx parcel build src/index.html --dist-dir public",
     "serve-prod": "npx serve public/",
+    "lint": "npx eslint src/",
     "deploy": "firebase deploy"
   },
   "keywords": [],
