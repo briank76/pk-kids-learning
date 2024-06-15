@@ -1,0 +1,85 @@
+@import './variables.scss';
+@import './resets.scss';
+
+.container {
+    margin: 1rem;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 15% 1fr 10%;
+    column-gap: 1rem;
+}
+
+.letter-output__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 1rem;
+}
+
+.letter-output__header-col {
+    display: inline-grid;
+    align-content: start;
+}
+
+.letter-output__textbox {
+    text-align: center;
+    border: 1px solid $info;
+    padding: 1rem;
+    grid-column: 1/3;
+}
+
+.letter-output__select-font-size {
+    background-color: $white;
+    border-radius: 5px;
+    font-size: 1rem;
+    display: inline-block;
+}
+
+.letter-output-sm {
+    font-size: 3rem;
+}
+
+.letter-output-md {
+    font-size: 5rem;
+}
+
+.letter-output-lg {
+    font-size: 10rem;
+}
+
+.letter-output-xl {
+    font-size: 20rem;
+}
+
+.btn {
+    padding: .5rem 1rem;
+    white-space: nowrap;
+    font-size: 1rem;
+    line-height: 1.5;
+    display: inline-block;
+    border-radius: 5px;
+    border-color: transparent;
+}
+
+.btn-info {
+    background-color: $info;
+    color: $light;
+}
+
+.btn-warning {
+    color: #212529;
+    background-color: $warning;
+}
+
+.btn-align-right {
+    text-align: right;
+    margin: .25rem 0;
+}
+
+input[type=checkbox] {
+    accent-color: $light;
+}
+
+.test-font {
+    color: red;
+}

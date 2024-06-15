@@ -1,0 +1,95 @@
+body {
+  font-size: 16px;
+}
+
+.row-sm {
+  margin-top: .5rem;
+}
+
+.row-md {
+  margin-top: 1rem;
+}
+
+.container {
+  grid-template-columns: 15% 1fr 10%;
+  column-gap: 1rem;
+  margin: 1rem;
+  padding: 1rem;
+  display: grid;
+}
+
+.letter-output__header {
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+  display: grid;
+}
+
+.letter-output__header-col {
+  align-content: start;
+  display: inline-grid;
+}
+
+.letter-output__textbox {
+  text-align: center;
+  border: 1px solid #4ea8de;
+  grid-column: 1 / 3;
+  padding: 1rem;
+}
+
+.letter-output__select-font-size {
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.letter-output-sm {
+  font-size: 3rem;
+}
+
+.letter-output-md {
+  font-size: 5rem;
+}
+
+.letter-output-lg {
+  font-size: 10rem;
+}
+
+.letter-output-xl {
+  font-size: 20rem;
+}
+
+.btn {
+  white-space: nowrap;
+  border-color: #0000;
+  border-radius: 5px;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: inline-block;
+}
+
+.btn-info {
+  color: #f1f1f1;
+  background-color: #4ea8de;
+}
+
+.btn-warning {
+  color: #212529;
+  background-color: #f9c74f;
+}
+
+.btn-align-right {
+  text-align: right;
+  margin: .25rem 0;
+}
+
+input[type="checkbox"] {
+  accent-color: #f1f1f1;
+}
+
+.test-font {
+  color: red;
+}
+/*# sourceMappingURL=index.16b5c383.css.map */
