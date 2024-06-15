@@ -70,3 +70,6 @@ public/
 
 # development
 development/
+
+# parcel cache
+.parcel-cache/

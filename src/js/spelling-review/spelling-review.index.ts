@@ -10,7 +10,7 @@ export class SpellingReviewPage implements IPageComponent {
     }
 
     public render(app: HTMLDivElement): void {
-        let content = this.getHtml();
+        const content = this.getHtml();
         content.body.childNodes.forEach((x) => {
             app.appendChild(x);
         });
@@ -18,7 +18,7 @@ export class SpellingReviewPage implements IPageComponent {
     }
 
     private getHtml(): Document {
-        let content = new DOMParser().parseFromString(html, 'text/html');
+        const content = new DOMParser().parseFromString(html, 'text/html');
         return content;
     }
 
@@ -60,7 +60,7 @@ export class SpellingReviewPage implements IPageComponent {
     private setLetterSize(e: Event): void {
         const selectElement = e?.target as HTMLSelectElement;
         if (selectElement) {
-            let value = selectElement.value;
+            const value = selectElement.value;
             let sizeClass = '';
             if (value) {
                 switch(value) {
@@ -82,7 +82,7 @@ export class SpellingReviewPage implements IPageComponent {
                         break;
                 }
             }
-            let letterOutput = document.getElementById('letterOutput');
+            const letterOutput = document.getElementById('letterOutput');
             if (letterOutput) {
                 letterOutput.classList.remove(this.currentSize);
                 letterOutput.classList.add(sizeClass);

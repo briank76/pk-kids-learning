@@ -28,8 +28,8 @@ export class CompletionChecklistComponent extends HTMLElement {
         elements.forEach((x: HTMLInputElement) => {
             x.checked = false;
             x.addEventListener('click', (e: Event) => {
-                let chkbox = e.target as HTMLInputElement;
-                let listParent = chkbox?.parentElement?.parentElement?.parentElement;
+                const chkbox = e.target as HTMLInputElement;
+                const listParent = chkbox?.parentElement?.parentElement?.parentElement;
                 if (listParent) {
                     if (chkbox.checked) {
                         listParent.classList.remove('list-item-incomplete')
