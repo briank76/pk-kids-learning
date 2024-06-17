@@ -1,9 +1,7 @@
 <div class="container">
-    <div>
-        <completion-checklist-component></completion-checklist-component>
-    </div>
+    
     <div class="letter-output__header">
-        <div class="letter-output__header-col">
+        <div id="letterOutputContent" class="letter-output__header-col">
             <label for="letterInput">Enter Content to Display:</label>
             <input id="letterInput" type="text" />
             <div class="btn-align-right">
@@ -12,7 +10,7 @@
             </div>
         </div>
 
-        <div class="letter-output__header-col">
+        <div id="letterOutputFontSize" class="letter-output__header-col">
             <label for="letterOutputSize">Reader Font Size:</label>
             <select id="letterOutputSize" class="letter-output__select-font-size">
                 <option value="sm">Small</option>
@@ -22,9 +20,12 @@
             </select>
         </div>
 
-        <label for="letterOutput">Content:</label>
+        <span>Content:</span>
         <div id="letterOutput" class="letter-output__textbox letter-output-md">
             &nbsp;
         </div> 
+    </div>
+    <div>
+        <completion-checklist-component></completion-checklist-component>
     </div>
 </div>
