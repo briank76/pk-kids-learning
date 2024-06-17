@@ -3,17 +3,18 @@
 
 .container {
     margin: 1rem;
-    padding: 1rem;
     display: grid;
-    grid-template-columns: 15% 1fr 10%;
+    grid-template-columns: 5% 1fr 20%;
     column-gap: 1rem;
 }
+
 
 .letter-output__header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     column-gap: 1rem;
+    grid-column: 2;
 }
 
 .letter-output__header-col {
@@ -76,10 +77,39 @@
     margin: .25rem 0;
 }
 
+select,
+input {
+    font-size: 18px !important;
+    border: 1px solid $dark;
+}
+
 input[type=checkbox] {
     accent-color: $light;
 }
 
-.test-font {
-    color: red;
+
+@media screen and (max-width: $screen-sm) {
+    .container {
+        grid-template-columns: 1fr;
+        row-gap: 1rem;
+    }
+
+    .letter-output__header {
+        grid-column: 1;
+    }
+}
+
+@media screen and (max-width: $screen-xs) {
+    /*#letterOutput {
+        font-size: 3rem !important;
+    }*/
+
+    #letterOutputFontSize {
+        grid-column: 1/3;
+        margin-bottom: 1rem;
+    }
+
+    #letterOutputContent {
+        grid-column: 1/3;
+    }
 }
