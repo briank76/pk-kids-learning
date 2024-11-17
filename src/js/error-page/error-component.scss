@@ -1,0 +1,14 @@
+@import './../../css/variables.scss';
+
+.err-container {
+    max-width: 100%;
+    margin: auto;
+    width: 50%;
+}
+
+@media screen and (max-width: $screen-md) {
+    .err-container {
+        width: 95%;
+        margin: unset;
+    }
+}

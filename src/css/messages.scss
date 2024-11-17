@@ -1,0 +1,20 @@
+$err-msg-color: #fff;
+$err-background: red;
+$font-size: 1.5rem;
+
+.msg-container {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: $border-radius;
+    padding: 10px;
+    min-height: 3rem;
+    display: inline-grid;
+    justify-content: center;
+    align-content: center;
+
+    &__error {
+        background-color: $err-background;
+        color: $err-msg-color;
+        font-size: 1.5rem;
+    }
+}
