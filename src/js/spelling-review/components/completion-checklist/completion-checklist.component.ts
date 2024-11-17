@@ -1,6 +1,6 @@
 //import { LitElement } from 'lit';
 //import { customElement } from 'lit/decorators.js';
-import scssData from 'bundle-text:./completion-checklist.scss';
+import * as scssData from 'bundle-text:./completion-checklist.scss';
 import htmlData from 'bundle-text:./completion-checklist.html';
 
 //@customElement('completion-checklist-component')

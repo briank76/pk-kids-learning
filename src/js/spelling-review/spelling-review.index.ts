@@ -10,15 +10,15 @@ export class SpellingReviewPage implements IPageComponent {
     }
 
     public render(app: HTMLDivElement): void {
-        const content = this.getHtml();
+        const content = this.getHtml(html);
         content.body.childNodes.forEach((x) => {
             app.appendChild(x);
         });
         this.addEventListeners();
     }
 
-    private getHtml(): Document {
-        const content = new DOMParser().parseFromString(html, 'text/html');
+    private getHtml(displayHtml: string): Document {
+        const content = new DOMParser().parseFromString(displayHtml, 'text/html');
         return content;
     }
 
@@ -122,7 +122,7 @@ export class SpellingReviewPage implements IPageComponent {
                 letter = '&nbsp;'
                 letterOutput.innerHTML = letter;
             } else {
-                letterOutput.innerText = letter;
+                letterOutput.textContent = letter;
             }
         }
     }
