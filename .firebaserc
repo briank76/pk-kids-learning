@@ -1,11 +1,5 @@
 {
   "projects": {
     "default": "pk-kids-learning"
-  },
-  "hosting": {
-    "rewrites": {
-      "source": "/**",
-      "destination": "/index.html"
-    }
   }
 }
