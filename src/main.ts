@@ -1,5 +1,5 @@
-import { RoutingModule } from "./routing/routing";
-import "./spelling-review/components/completion-checklist/completion-checklist.component";
+import { RoutingModule } from "./app/routing/routing";
+import "./app/spelling-review/components/completion-checklist/completion-checklist.component";
 
 document.addEventListener("DOMContentLoaded", () => {  
     const myapp = document.getElementById('app') as HTMLDivElement;
