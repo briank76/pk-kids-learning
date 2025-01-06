@@ -32,10 +32,11 @@ export class RoutingModule {
     public navigate(path: string, setPath = true): void {
         try
         {
-            const url = this._parseUrl(path);
+            const url = this.parseUrl(path);
+            
             if (url) {
-                const primaryRoute = this._getRouteData(url.path);
-                const defaultRoute = this._getRouteData(this.defaultRouteIndicator);
+                const primaryRoute = this.getRouteData(url.path);
+                const defaultRoute = this.getRouteData(this.defaultRouteIndicator);
                 if (setPath) {
                     this.setLocation(path);
                 }
@@ -69,7 +70,7 @@ export class RoutingModule {
         }
     }
 
-    _getRouteData(pathId) {
+    private getRouteData(pathId) {
         let routeData;
         if (this.routingTable && this.routingTable.routes) {
             routeData = this.routingTable.routes.find(x => x.path === pathId);
@@ -77,7 +78,7 @@ export class RoutingModule {
         return routeData;
     }
 
-    _parseUrl(incomingURL: string) {
+    private parseUrl(incomingURL: string) {
         const url: string[] = incomingURL.split( '//' );
         if (url[0] === 'http:' || url[0] === 'https:') {
           const protocol = url[0] + '//';
