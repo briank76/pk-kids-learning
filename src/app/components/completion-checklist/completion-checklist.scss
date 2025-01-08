@@ -1,0 +1,35 @@
+@import '../../../scss/variables.scss';
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list-item {
+    padding: 5px;
+    border: 1px solid $info;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: .5rem;
+}
+
+.list-item-container {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+}
+
+.list-item-container-text {
+    text-align: left;
+}
+
+.list-item-incomplete {
+    background-color: $info;
+    color: $light;
+}
+
+.list-item-complete {
+    background-color: $success;
+    color: $light;
+}
