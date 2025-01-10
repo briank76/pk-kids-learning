@@ -16,8 +16,14 @@ export class PageBase
         app.append(styles);
     }
 
-    private parseHtml(pageHtml: string): Document {
+    public getTemplateById(id: string, doc: Document): DocumentFragment {
+        const template = doc.getElementById(id) as HTMLTemplateElement;
+        return template.content;
+    }
+
+    public parseHtml(pageHtml: string): Document {
         const content = new DOMParser().parseFromString(pageHtml, 'text/html');
+        console.log(content);
         return content;
     }
 }

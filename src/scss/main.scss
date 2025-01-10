@@ -1,5 +1,6 @@
-@import './variables.scss';
-@import './resets.scss';
+@import './base/variables.scss';
+@import './base/resets.scss';
+@import './components/buttons.scss';
 @import './messages.scss';
 
 .container {

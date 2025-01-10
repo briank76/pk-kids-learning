@@ -1,0 +1,137 @@
+@mixin btn-mixin($id, $id-outline, $id-link, $layout, $sizes, $defaults) {
+    /*default button*/
+    .#{$id} {
+      border-radius: map-get($defaults, radius);
+      cursor: map-get($defaults, cursor);
+      white-space: map-get($defaults, ws);
+      display: map-get($defaults, display);
+      font-size: map-get($defaults, fs);
+      line-height: map-get($defaults, lh);
+      padding: map-get($defaults, pad);
+      
+      &.disabled,
+      &:disabled {
+        opacity: .5;
+        pointer-events: none;
+      }
+    }
+  
+    /*standard buttons*/
+    @each $section, $map in $layout {
+      $name: #{$id}-#{$section};
+      .#{$name} {
+        color: map-get($map, color);
+        background: map-get($map, bg);
+        border: 1px solid darken(map-get($map, bg), 10%);
+  
+        &:hover,
+        &:focus {
+          background: darken(map-get($map, bg), 10%);
+        }
+        
+        &.disabled,
+        &:disabled {
+          opacity: .5;
+          pointer-events: none;
+        }
+      }
+    }
+  
+    /*outline buttons*/
+    @each $section, $map in $layout {
+      $name: #{$id-outline}-#{$section};
+      .#{$name} {
+        color: map-get($map, bg);
+        background: #fff;
+        border: 1px solid map-get($map, bg);
+  
+        &:hover,
+        &:focus {
+          color: map-get($map, color);
+          background: (map-get($map, bg));
+        }
+      }
+    }
+    
+    /*link buttons*/
+    @each $section, $map in $layout {
+      $name: #{$id-link}-#{$section};
+      .#{$name} {
+        color: map-get($map, bg);
+        background: transparent;
+        border: none;
+  
+        &:hover,
+        &:focus {
+          text-decoration: underline !important;
+        }
+      }
+    }
+  
+  
+    /*button sizes*/
+    @each $section, $map in $sizes {
+      $name: #{$id}-#{$section};
+      .#{$name}{
+        font-size: map-get($map, fs);
+        padding: map-get($map, pad);
+      }
+    }
+  }
+  
+  $button-defaults: (
+      radius: 5px,
+      cursor: pointer,
+      ws: nowrap,
+      display: inline-block,
+      fs: 1rem,
+      pad: .5rem 1rem,
+      lh: 1.5,
+      background: transparent,
+      border: transparent
+  );
+  
+  $button-theme: (
+      primary: (
+          color: #fff,
+          bg: #277da1,
+      ),
+      secondary: (
+          color: #fff,
+          bg: #6c757d,
+      ),
+      success: (
+          color: #fff,
+          bg: #43aa8b
+      ),
+      danger: (
+          color: #fff,
+          bg: #f94144,
+      ),
+      warning: (
+          color: #212529,
+          bg: #f9c74f
+      ),
+      info: (
+          color: #fff,
+          bg: #4ea8de
+      ),
+      dark: (
+          color: white,
+          bg: #23272b
+      )
+  );
+  
+  $button-sizes: (
+      sm: (
+          fs: .75rem,
+          pad: .4rem .75rem
+      ), 
+      lg: (
+          fs: 1.25rem,
+          pad: .5rem 1rem
+      )
+  );
+  
+  @include btn-mixin('btn', 'btn-outline', 'btn-link', $button-theme, $button-sizes, $button-defaults);
+  

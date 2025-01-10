@@ -1,3 +1,15 @@
-<div>
-    hello word list!
-</div>
+<div id="wordContainer" class="word-container"></div>
+
+
+<template id="wordTemplate">
+    <div class="word-container__view">
+        <div id="word" class="word-container__view--word"></div>
+        <div class="word-container__view--btn">
+            <button class="btn btn-sm btn-primary">Hide</button>
+        </div>
+    </div>
+</template>
+
+<template id="errorTemplate">
+    <div>No words found.</div>
+</template>
