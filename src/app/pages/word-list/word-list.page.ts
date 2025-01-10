@@ -13,6 +13,7 @@ export class WordListPage extends PageBase implements IPageComponent
         this.addHtml(app, htmlContent);
         this.addStyles(app, scssContent);
         this.createComponentFromTemplate();
+        this.addEventListener();
     }
 
     private createComponentFromTemplate(): void {
@@ -23,7 +24,10 @@ export class WordListPage extends PageBase implements IPageComponent
             wordList.forEach((word) => {
                 const wordClone = wordTemplate.content.cloneNode(true) as HTMLElement;
                 const wordDiv = wordClone.querySelector('#word') as HTMLElement;
+                const button = wordClone.querySelector('#btn') as HTMLElement;
                 wordDiv.textContent = word;
+                wordDiv.id = 'word-' + word;
+                button.id = word;
                 wordContainer?.appendChild(wordClone);
             });
         }
@@ -34,7 +38,25 @@ export class WordListPage extends PageBase implements IPageComponent
         }
     }
 
-    
+    private addEventListener() {
+        const btnList = document.getElementsByClassName('btn');
+        if (btnList) {
+            Array.from(btnList).forEach((btn) => {
+                btn.addEventListener('click', (e) => {
+                    const btn = e.target as HTMLButtonElement;
+                    const wordDivId = 'word-' + btn.id;
+                    const wordDiv = document.getElementById(wordDivId);
+                    if (btn.textContent?.toLowerCase() === 'hide') {
+                        btn.textContent = 'Show';
+                        wordDiv?.classList.add('hide');
+                    } else {
+                        btn.textContent = 'Hide';
+                        wordDiv?.classList.remove('hide');
+                    }
+                });
+            });
+        }
+    }
 
     private getList(): string[] {
         const words: string[] = ['do', 
