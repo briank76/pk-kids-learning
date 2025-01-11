@@ -1,7 +1,15 @@
-@import './base/variables.scss';
-@import './base/resets.scss';
-@import './components/buttons.scss';
-@import './messages.scss';
+@import './themes/default';
+
+@import './util/functions';
+@import './util/mixins';
+
+@import './base/variables';
+@import './base/resets';
+@import './base/typography';
+
+@import './components/buttons';
+@import './pages/messages';
+@import './pages//spelling-review';
 
 .container {
     margin: 1rem;

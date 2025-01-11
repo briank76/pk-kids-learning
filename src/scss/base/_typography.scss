@@ -1,0 +1,49 @@
+$typography-settings: (
+    primary,
+    secondary,
+    info,
+    warning,
+    danger,
+    success,
+    dark,
+    light
+);
+
+$box-model-sizes: (
+    1:(
+        size: .25rem
+    ),
+    2:(
+        size: .5rem
+    ),
+    3: (
+        size: 1rem
+    ),
+    4: (
+        size: 1.5rem
+    ),
+    5: (
+        size: 3rem
+    )
+);
+
+$typograhpy-sizes: (
+  xs: -4,
+  sm: -2,
+  md: 0,
+  lg: 2,
+  xl: 4
+);
+
+
+@include typography($typography-settings);
+@include box-model($box-model-sizes);
+@include font-sizes(map-get($theme, font-size), $typograhpy-sizes);
+
+.serif-font-family {
+    font-family: get-setting(fonts, serif) !important;
+}
+
+.sans-serif-font-family {
+    font-family: get-setting(fonts, sans-serif) !important;
+}

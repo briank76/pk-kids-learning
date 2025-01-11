@@ -1,0 +1,7 @@
+@function get-setting($type, $id) {
+    @return map-get(map-get($global-settings, $type), $id);
+  }
+
+@function get-component-setting($settings, $id) {
+  
+}

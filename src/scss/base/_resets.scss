@@ -1,0 +1,62 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: get-setting(default, margin);
+    padding: get-setting(default, padding);
+    font-size: get-setting(default, font-size);
+    font-family: get-setting(default, font-family);
+    color: get-setting(primary, text);
+    background: linear-gradient(get-setting(default, bg-primary), get-setting(default, bg-fade));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+%heading {
+    margin: get-setting(headers, margin);
+    padding: get-setting(headers, padding);
+}
+
+h1 {
+    font-size: 2.5rem;
+    @extend %heading;
+}
+h2 {
+    font-size: 2rem;
+    @extend %heading;
+}
+h3 {
+    font-size: 1.75rem;
+    @extend %heading;
+}
+h4 {
+    font-size: 1.5rem;
+    @extend %heading;
+}
+h5 {
+    font-size: 1.25rem;
+    @extend %heading;
+}
+h6 {
+    font-size: 1rem;
+    @extend %heading;
+}
+
+p {
+    padding: get-setting(default, padding);
+}
+
+.row-sm {
+    margin-top: .5rem;
+}
+
+.row-md {
+    margin-top: 1rem;
+}

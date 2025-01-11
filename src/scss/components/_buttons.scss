@@ -93,32 +93,32 @@
   
   $button-theme: (
       primary: (
-          color: #fff,
-          bg: #277da1,
+          color: $color-light,
+          bg: $color-primary,
       ),
       secondary: (
-          color: #fff,
-          bg: #6c757d,
+          color: $color-light,
+          bg: $color-secondary,
       ),
       success: (
-          color: #fff,
-          bg: #43aa8b
+          color: $color-light,
+          bg: $color-success
       ),
       danger: (
-          color: #fff,
-          bg: #f94144,
+          color: $color-light,
+          bg: $color-danger,
       ),
       warning: (
-          color: #212529,
-          bg: #f9c74f
+          color: $color-dark,
+          bg: $color-warning
       ),
       info: (
-          color: #fff,
-          bg: #4ea8de
+          color: $color-light,
+          bg: $color-info
       ),
       dark: (
-          color: white,
-          bg: #23272b
+          color: $color-light,
+          bg: $color-dark
       )
   );
   
