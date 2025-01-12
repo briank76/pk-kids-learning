@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+$lighten: 15%;
+$darken: 15%;
+
+$default-theme: (
+    font-size: 16px,
+    font-family: "Roboto",
+    bg-primary: #fff,
+    bg-fade: #fff,
+    border: 1px solid #000,
+    box-shadow: 5px 5px 10px rgb(77, 76, 76),
+    serif-font-family: 'Times, "Times New Roman", serif',
+    sans-serif-font-family: 'Arial, Helvetica, sans-serif',
+    border-radius: 3px,
+
+    primary: #277da1,
+    secondary: #6c757d,
+    success: #43aa8b,
+    danger: #f94144,
+    warning: #f9c74f,
+    info: #4ea8de,
+    dark: #23272b,
+    light: #f1f1f1,
+
+    spelling-letter-color: #fff
+);
+
+$purple-theme: (
+    font-size: 16px,
+    font-family: "Roboto",
+    bg-primary: lighten(#b300b3, 15%),
+    bg-fade: lighten(#b300b3, 15%),
+    border: 1px solid #fff,
+    box-shadow: 5px 5px 10px rgb(252, 151, 252),
+    border-radius: 10px,
+    serif-font-family: 'Times, "Times New Roman", serif',
+    sans-serif-font-family: 'Arial, Helvetica, sans-serif',
+    
+
+    primary: #b300b3,
+    secondary: #a83fa8,
+    success: #d580ff,
+    danger: #b30050,
+    warning: #eabfff,
+    info: #d580ff,
+    dark: #23272b,
+    light: #f1f1f1,
+
+    spelling-letter-color: #fff
+);
+
+$pink-theme: (
+    font-size: 16px,
+    font-family: "Roboto",
+    bg-primary: lighten(#f810d9, 15%),
+    bg-fade: lighten(#f810d9, 15%),
+    border: 1px solid #fff,
+    box-shadow: 5px 5px 10px rgb(252, 151, 252),
+    border-radius: 10px,
+    serif-font-family: 'Times, "Times New Roman", serif',
+    sans-serif-font-family: 'Arial, Helvetica, sans-serif',
+    
+
+    primary: #f810d9,
+    secondary: #f53fdd,
+    success: #e491f5,
+    danger: #b30050,
+    warning: #e95fbb,
+    info: #f199e6,
+    dark: #23272b,
+    light: #f1f1f1,
+
+    spelling-letter-color: #fff
+);

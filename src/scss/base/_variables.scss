@@ -1,0 +1,141 @@
+@import './../themes/default';
+@import './../util/functions';
+
+$default-font-size: 18px;
+
+$color-adjust: 15%;
+$trans-adjust: 0.5;
+
+$info: #4ea8de;
+$warning: #f9c74f;
+$success: #43aa8b;
+$light: #f1f1f1;
+$dark: #000;
+$white: #fff;
+
+$screen-xs: 475px;
+$screen-sm: 767px;
+$screen-md: 991px;
+$screen-lg: 1199px;
+$screen-xl: 1400px;
+
+$theme: $purple-theme;
+
+$global-settings: (
+    default: (
+        font-size: map-get($theme, font-size),
+        font-family: map-get($theme, font-family),
+        bg-primary: map-get($theme, bg-primary),
+        bg-fade: map-get($theme, bg-fade),
+        border:  map-get($theme, border),
+        box-shadow: map-get($theme, box-shadow),
+        border-radius: map-get($theme, border-radius),
+        margin: 0,
+        padding: 0
+    ),
+    primary: (
+        color: map-get($theme, primary),
+        light: lighten(map-get($theme, primary), $color-adjust),
+        dark: darken(map-get($theme, primary), $color-adjust),
+        trans: transparentize(map-get($theme, primary), $trans-adjust),
+    ),
+    secondary: (
+        color: map-get($theme, secondary),
+        light: lighten(map-get($theme, secondary), $color-adjust),
+        dark: darken(map-get($theme, secondary), $color-adjust),
+        trans: transparentize(map-get($theme, secondary), $trans-adjust)
+    ),
+    info: (
+        color: map-get($theme, info),
+        light: lighten(map-get($theme, info), $color-adjust),
+        dark: darken(map-get($theme, info), $color-adjust),
+        trans: transparentize(map-get($theme, info), $trans-adjust)
+    ),
+    success: (
+        color: map-get($theme, success),
+        light: lighten(map-get($theme, success), $color-adjust),
+        dark: darken(map-get($theme, success), $color-adjust),
+        trans: transparentize(map-get($theme, success), $trans-adjust)
+    ),
+    warning: (
+        color: map-get($theme, warning),
+        light: lighten(map-get($theme, warning), $color-adjust),
+        dark: darken(map-get($theme, warning), $color-adjust),
+        trans: transparentize(map-get($theme, warning), $trans-adjust)
+    ),
+    danger: (
+        color: map-get($theme, danger),
+        light: lighten(map-get($theme, danger), $color-adjust),
+        dark: darken(map-get($theme, danger), $color-adjust),
+        trans: transparentize(map-get($theme, danger), $trans-adjust)
+    ),
+    dark: (
+        color: map-get($theme, dark),
+        dark: darken(map-get($theme, dark), $color-adjust),
+        trans: transparentize(map-get($theme, dark), $trans-adjust)
+    ),
+    light: (
+        color: map-get($theme, light),
+        light: lighten(map-get($theme, light), $color-adjust),
+        dark: darken(map-get($theme, light), $color-adjust),
+        trans: transparentize(map-get($theme, light), $trans-adjust)
+    ),
+    fonts: (
+        serif: map-get($theme, serif-font-family),
+        sans-serif: map-get($theme, sans-serif-font-family)
+    ),
+    headers: (
+        margin: 2rem 0 .75rem 0,
+        padding: 0
+    ),
+);
+
+$side-nav-settings: (
+    bg-color: #000,
+    icon-color: #fff,
+    link-color: #fff,
+    bottom-menu: $screen-sm
+);
+
+
+// color pallette
+$color-primary: get-setting(primary, color);
+$color-primary-light: get-setting(primary, light);
+$color-primary-dark: get-setting(primary, dark);
+
+$color-secondary: get-setting(secondary, color);
+$color-secondary-light: get-setting(secondary, light);
+$color-secondary-dark: get-setting(secondary, dark);
+
+$color-info: get-setting(info, color);
+$color-info-light: get-setting(info, light);
+$color-info-dark: get-setting(info, dark);
+
+$color-success: get-setting(success, color);
+$color-success-light: get-setting(success, light);
+$color-success-dark: get-setting(success, dark);
+
+$color-warning: get-setting(warning, color);
+$color-warning-light: get-setting(warning, light);
+$color-warning-dark: get-setting(warning, dark);
+
+$color-danger: get-setting(danger, color);
+$color-danger-light: get-setting(danger, light);
+$color-danger-dark: get-setting(danger, dark);
+
+$color-dark: get-setting(dark, color);
+$color-dark-light: get-setting(dark, light);
+$color-dark-dark: get-setting(dark, dark);
+
+$color-light: get-setting(light, color);
+$color-light-light: get-setting(light, light);
+$color-light-dark: get-setting(light, dark);
+
+$color-white: #fff;
+$color-black: #000;
+
+// boxes
+$border: get-setting(default, border);
+$border-radius: get-setting(default, border-radius);
+$box-bg: $color-primary-light;
+$box-bg-fade: linear-gradient(to bottom, $color-primary-dark 0%, $color-secondary-light 100%);

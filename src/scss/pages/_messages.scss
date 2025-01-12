@@ -4,8 +4,8 @@ $font-size: 1.5rem;
 
 .msg-container {
     width: 100%;
-    border: 1px solid black;
-    border-radius: $border-radius;
+    border: get-setting(default, border);
+    border-radius: get-setting(default, border-radius);
     padding: 10px;
     min-height: 3rem;
     display: inline-grid;
@@ -13,8 +13,8 @@ $font-size: 1.5rem;
     align-content: center;
 
     &__error {
-        background-color: $err-background;
-        color: $err-msg-color;
+        background-color: get-setting(danger, color);
+        color: get-setting(light, color);
         font-size: 1.5rem;
     }
 }

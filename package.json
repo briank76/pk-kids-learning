@@ -1,11 +1,11 @@
 {
   "name": "pk-learning",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "simple learning software for pre-k thru first grade",
   "scripts": {
     "build-dev": "npm run lint && npx parcel src/index.html --dist-dir development -p 3000",
-    "build-prod": "npm run lint && npx parcel build src/index.html --dist-dir public",
-    "serve-prod": "npx serve public/",
+    "build-prod": "npm run lint && npx parcel build src/index.html --dist-dir public && npm run serve-prod",
+    "serve-prod": "firebase serve",
     "lint": "npx eslint src/",
     "deploy": "firebase deploy"
   },

@@ -1,4 +1,4 @@
-import { IPageComponent } from "../page.interface";
+import { IPageComponent } from "../../page.interface";
 import html from 'bundle-text:./error-component.html';
 import * as scssData from 'bundle-text:./error-component.scss';
 

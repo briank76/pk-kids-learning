@@ -1,25 +1,21 @@
-import { IPageComponent } from "../page.interface";
-import html from 'bundle-text:./spelling-review.index.html';
+import { PageBase } from "../../page.base";
+import { IPageComponent } from "../../page.interface";
+import * as htmlContent from 'bundle-text:./spelling-review.index.html';
+import * as scssContent from 'bundle-text:./spelling-review.index.scss';
 
-export class SpellingReviewPage implements IPageComponent {
+export class SpellingReviewPage extends PageBase implements IPageComponent {
     private readonly defaultSize = 'letter-output-md';
     private currentSize: string;
 
     constructor() {
+        super();
         this.currentSize = this.defaultSize;
     }
 
     public render(app: HTMLDivElement): void {
-        const content = this.getHtml(html);
-        content.body.childNodes.forEach((x) => {
-            app.appendChild(x);
-        });
+        this.addHtml(app, htmlContent);
+        this.addStyles(app, scssContent);
         this.addEventListeners();
-    }
-
-    private getHtml(displayHtml: string): Document {
-        const content = new DOMParser().parseFromString(displayHtml, 'text/html');
-        return content;
     }
 
     private displayButtonClick() {
