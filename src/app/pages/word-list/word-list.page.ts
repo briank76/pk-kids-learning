@@ -19,8 +19,8 @@ export class WordListPage extends PageBase implements IPageComponent
     private createComponentFromTemplate(): void {
         const wordList = this.getList();
         const wordContainer = document.getElementById('wordContainer');
+        const wordTemplate = document.getElementById('wordTemplate') as HTMLTemplateElement;
         if (wordList && wordList.length > 0) {
-            const wordTemplate = document.getElementById('wordTemplate') as HTMLTemplateElement;
             wordList.forEach((word) => {
                 const wordClone = wordTemplate.content.cloneNode(true) as HTMLElement;
                 const wordDiv = wordClone.querySelector('#word') as HTMLElement;
