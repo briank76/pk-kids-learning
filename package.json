@@ -1,6 +1,6 @@
 {
   "name": "pk-learning",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "simple learning software for pre-k thru first grade",
   "scripts": {
     "build-dev": "npm run lint && npx parcel src/index.html --dist-dir development -p 3000",
