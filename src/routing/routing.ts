@@ -11,7 +11,7 @@ class UrlModel {
 }
 */
 
-export class RoutingModule {
+class RoutingModule {
     private routingTable = new RoutingTable();
     private currentUrl: string;
     private previousUrl: string;
@@ -135,3 +135,7 @@ export class RoutingModule {
         };
     }
 }
+
+const routingModule = new RoutingModule();
+routingModule.initRouting();
+export { routingModule };
