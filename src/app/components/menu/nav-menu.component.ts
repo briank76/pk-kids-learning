@@ -8,7 +8,6 @@ export class NavMenuComponent extends HTMLElement {
     }
 
     public connectedCallback() {
-        console.log('hi');
         const shadow = this.attachShadow({mode: 'open'});
         const content = new DOMParser().parseFromString(htmlContent, 'text/html');
         const styles = document.createElement('style');
@@ -23,8 +22,6 @@ export class NavMenuComponent extends HTMLElement {
 
     private addEventListeners(shadow: ShadowRoot) {
         const routeLinks = shadow.querySelectorAll('[route-link]');
-        console.log('routeLinks');
-        console.log(routeLinks);
         routeLinks.forEach(rl => 
             rl.addEventListener('click', (e) => {
                 e.preventDefault();

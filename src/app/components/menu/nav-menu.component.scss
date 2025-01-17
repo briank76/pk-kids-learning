@@ -75,14 +75,14 @@
     position: absolute;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: 0;
     z-index: -10;
     background: #000;
     opacity: 0;
     display: block;
     margin-top: 0;
     text-align: center;
-    transition: all 700ms ease-in-out;
+    transition: opacity 700ms ease-in-out;
     
     &__items {
       display: inline-block;
@@ -135,7 +135,23 @@
   }
   
   #menustate:checked ~ .menu_content {
-    z-index: 1;
     opacity: .8;
+    animation: display-menu 700ms ease-in-out 1ms 1 normal both;
+  }
+
+  #menustate:not(:checked) ~ .menu_content {
+    opacity: 0;
+    animation: hide-menu 1ms ease-in-out 700ms 1 normal both;
+  }
+
+
+  @keyframes display-menu {
+    0% { height: 100vh; }
+    100% { z-index: 1; height: 100vh; }
+  }
+
+  @keyframes hide-menu {
+    0% { height: 100vh; z-index: 1;}
+    100% { height: 0; z-index: -10;}
   }
   
