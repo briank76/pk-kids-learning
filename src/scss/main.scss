@@ -17,3 +17,17 @@
     grid-template-columns: 1fr;
     gap: 1rem;
 }
+
+
+$colors: (
+    primary: $color-secondary,//#ffa500,
+    light: #fff,
+    dark: #000,
+    transparent: transparent
+  );
+  
+  :root {
+    @each $id, $color in $colors {
+      --color-#{$id}: #{$color};
+    }
+  }

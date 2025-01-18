@@ -1,10 +1,11 @@
-import { RoutingModule } from "./routing/routing";
+import { routingModule } from "./routing/routing";
 import "./app/components/completion-checklist/completion-checklist.component";
+import "./app/components/menu/nav-menu.component";
 
 document.addEventListener("DOMContentLoaded", () => {  
     const myapp = document.getElementById('app') as HTMLDivElement;
-    const routing = new RoutingModule();
-    routing.getRouteSubject.subscribe({
+    //const routing = new RoutingModule();
+    routingModule.getRouteSubject.subscribe({
         next: (value) => {
             console.log(value);
             const key = 'component';
@@ -23,5 +24,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    routing.initRouting();
+    routingModule.initRouting();
 });
