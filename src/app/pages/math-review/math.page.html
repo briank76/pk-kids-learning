@@ -1,0 +1,28 @@
+<div>
+    <div>
+        <div>
+            <select id="mathFunction">
+                <option value="Add" default>Add</option>
+                <option value="Subtract">Subtract</option>
+                <option value="Any">Mix</option>
+            </select>
+        </div>
+        <div>
+            <div>Current Max Total: <span id="currentMaxTotal">20</span></div>
+            <label for="maxNumber">Enter Max Number</label>
+            <input id="maxNumber" type="number" value="20" max="20" />
+        </div>
+        <div>
+            <button id="btnNextMathQuestion" class="btn btn-primary">Next Question</button>
+        </div>
+        <div>
+            <span id="equation">5 + 3</span>
+            <input type="text" value="" maxlength="2" pattern="[0-9]{2}">
+        </div>
+        <div>
+            <button id="checkAnswer" class="btn btn-primary">Check Answer</button>
+        </div>
+        <div id="results">
+        </div>
+    </div>
+</div>

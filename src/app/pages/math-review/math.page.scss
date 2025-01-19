@@ -1,0 +1,9 @@
+.math-container {
+    display: grid;
+    gap: 1rem;
+
+    &__options {
+        display: inline-grid;
+        
+    }
+}
