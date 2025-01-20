@@ -1,9 +1,66 @@
+$q-font-size: 4rem;
+
 .math-container {
     display: grid;
+    justify-content: center;
     gap: 1rem;
 
-    &__options {
-        display: inline-grid;
-        
+    &--q-type {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    &__question {
+        margin: 3rem 0 0 0;
+        text-align: center;
+
+        &--equation {
+            font-size: $q-font-size;
+        }
+
+        &--answer {
+            font-size: $q-font-size;
+            width: 90px;
+            text-align: center;
+        }
+    }
+
+    &__btn {
+      display: grid;
+      grid-template-columns: 1fr;
+
+      button:not(:last-child) {
+        margin-bottom: .5rem;
+      }
     }
 }
+
+.btn-full-width {
+    width: 100%;
+}
+/*
+.v-eq {
+    max-width: 100px;
+    margin-left: 50px;
+    font-size: 3rem;
+    padding: 0 .5rem;
+
+    &__num {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        &--sign {
+            justify-self: flex-start;
+        }
+
+        &--num-align {
+            justify-self: flex-end;
+        }
+    }
+
+    &__border {
+        border: 1px solid black;
+        margin: 0 -.5rem;
+    }
+}
+    */
