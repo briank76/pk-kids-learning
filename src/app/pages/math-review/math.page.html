@@ -1,38 +1,39 @@
 <div class="math-container">
-    <div>
-        <label for="mathFunction">Select Question Type</label>
-        <select id="mathFunction" class="math-container--q-type">
-            <option value="Add" default>Add</option>
-            <option value="Subtract">Subtract</option>
-            <option value="Any">Mix</option>
-        </select>
-    </div>
-    <!--<div>
-        <div>Current Max Total: <span id="currentMaxTotal">10</span></div>
-        <label for="maxNumber">Enter Max Number</label>
-        <input id="maxNumber" type="number" value="10" max="20" />
-    </div>-->
-    <div class="math-container__question">
-        <span id="equation" class="math-container__question--equation"></span>
-        <input id="total" type="text" class="math-container__question--answer" value="" maxlength="2" pattern="[0-9]{2}">
-    </div>
-    <div class="math-container__btn">
-        <button id="checkAnswer" class="btn btn-primary">Check Answer</button>
-        <button id="btnNextMathQuestion" class="btn btn-primary">Next Question</button>
-    </div>
-    <div id="results" class="math-container__results">
-    </div>
+    <div class="math-container__outer">
+        <div>
+            <label for="mathFunction">Select Question Type</label>
+            <select id="mathFunction" class="math-container--q-type">
+                <option value="Add">Add</option>
+                <option value="Subtract">Subtract</option>
+                <option value="Any" selected="selected">Mix</option>
+            </select>
+        </div>
+        <!--<div>
+            <div>Current Max Total: <span id="currentMaxTotal">10</span></div>
+            <label for="maxNumber">Enter Max Number</label>
+            <input id="maxNumber" type="number" value="10" max="20" />
+        </div>-->
+        <div class="math-container__question">
+            <span id="equation" class="math-container__question--equation"></span>
+            <input id="total" type="text" class="math-container__question--answer" value="" maxlength="2" pattern="[0-9]{2}">
+        </div>
+        <div class="math-container__btn">
+            <button id="checkAnswer" class="btn btn-primary">Check Answer</button>
+            <button id="btnNextMathQuestion" class="btn btn-primary">Next Question</button>
+        </div>
+        <div id="results" class="math-container__results">
+        </div>
 
-    <!--<div class="v-eq">
-        <div id="topNumber" class="v-eq__num">
-            <div></div>
-            <div class="v-eq__num--num-align">25</div>
-        </div>
-        <div id="bottomNumber" class="v-eq__num">
-            <div class="v-eq__num--sign">+</div>
-            <div class="v-eq__num--num-align">3</div>
-        </div>
-        <div class="v-eq__border"></div>
-    </div>-->
-    
+        <!--<div class="v-eq">
+            <div id="topNumber" class="v-eq__num">
+                <div></div>
+                <div class="v-eq__num--num-align">25</div>
+            </div>
+            <div id="bottomNumber" class="v-eq__num">
+                <div class="v-eq__num--sign">+</div>
+                <div class="v-eq__num--num-align">3</div>
+            </div>
+            <div class="v-eq__border"></div>
+        </div>-->
+    </div>
 </div>

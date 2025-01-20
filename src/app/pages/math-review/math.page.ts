@@ -19,6 +19,10 @@ export class MathPage extends PageBase implements IPageComponent {
         this.addEventListenerQuestionType();
         this.addEventListenerCheckAnswer();
         this.addEventListenerNextQuestion();
+        const func = document.getElementById('mathFunction') as HTMLSelectElement;
+        if (func) {
+            this.selectedFunction = func.value as MathFunction;
+        }
         this.createEquation();
     }
 
@@ -114,7 +118,12 @@ export class MathPage extends PageBase implements IPageComponent {
         if (equation) {
             equation.textContent = model.equation;
         }
-        document.getElementById('total')?.focus();
+        const total = document.getElementById('total') as HTMLInputElement;
+        if (total) {
+            total.value = '';
+            total.focus();
+        }
+        this.setMessage('', false);
     }
 
     // generate number between 0-10
