@@ -63,21 +63,21 @@ export class MathPage extends PageBase implements IPageComponent {
                 msgDiv.classList.add('math-container__results--success');
             } else {
                 msgDiv.classList.add('math-container__results--failure');
+                document.getElementById('total')?.focus();
+                (document.getElementById('total') as HTMLInputElement)?.select();
             }
         }
     }
 
     private clearMessage(msgDiv: HTMLDivElement): void {
         if (msgDiv) {
-           msgDiv.classList.remove('math-container__results--success')
-           msgDiv.classList.remove('math-container__results--failure')
-            
+           msgDiv.classList.remove('math-container__results--success');
+           msgDiv.classList.remove('math-container__results--failure');
         }
     }
 
     private createEquation(): void {
         const model = this.generateNewMathQuestion();
-        console.log(model);
         let sign = '+'
         if (model.function === 'Subtract') {
             sign = '-';   
@@ -114,6 +114,7 @@ export class MathPage extends PageBase implements IPageComponent {
         if (equation) {
             equation.textContent = model.equation;
         }
+        document.getElementById('total')?.focus();
     }
 
     // generate number between 0-10
