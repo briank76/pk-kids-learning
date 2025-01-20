@@ -38,12 +38,10 @@ export class MathPage extends PageBase implements IPageComponent {
     private addEventListenerCheckAnswer(): void {
         document.getElementById('checkAnswer')?.addEventListener('click', () => {
             const input = (document.getElementById('total') as HTMLInputElement).value;
-            const msg = document.getElementById('results') as HTMLDivElement;
-
             if (input && this.currentQuestion && input === this.currentQuestion.total.toString()) {
-                msg.textContent = 'Correct';
+                this.setMessage('Correct', true);
             } else {
-                msg.textContent = 'Please try again'
+                this.setMessage('Please try again', false);
             }
         });
     }
@@ -51,15 +49,31 @@ export class MathPage extends PageBase implements IPageComponent {
     private addEventListenerNextQuestion(): void {
         document.getElementById('btnNextMathQuestion')?.addEventListener('click', () => {
             (document.getElementById('total') as HTMLInputElement).value = "";
-            const msg = document.getElementById('results') as HTMLDivElement;
-            if (msg) {
-                msg.textContent = '';
-            }
-            this.createEquation()
+            this.setMessage('', true);
+            this.createEquation();
         });
     }
 
-    
+    private setMessage(msg: string, success: boolean) {
+        const msgDiv = document.getElementById('results') as HTMLDivElement;
+        this.clearMessage(msgDiv);
+        if (msgDiv && msg) {
+            msgDiv.textContent = msg;
+            if (success) {
+                msgDiv.classList.add('math-container__results--success');
+            } else {
+                msgDiv.classList.add('math-container__results--failure');
+            }
+        }
+    }
+
+    private clearMessage(msgDiv: HTMLDivElement): void {
+        if (msgDiv) {
+           msgDiv.classList.remove('math-container__results--success')
+           msgDiv.classList.remove('math-container__results--failure')
+            
+        }
+    }
 
     private createEquation(): void {
         const model = this.generateNewMathQuestion();

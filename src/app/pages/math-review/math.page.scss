@@ -1,3 +1,5 @@
+@import '../../../scss/base/variables';
+
 $q-font-size: 4rem;
 
 .math-container {
@@ -32,6 +34,27 @@ $q-font-size: 4rem;
       button:not(:last-child) {
         margin-bottom: .5rem;
       }
+    }
+
+    &__results {
+        width: 100%;
+        border: 1px solid black;
+        font-size: 2rem;
+        text-align: center;
+        color: #fff;
+        padding: .5rem;
+        opacity: 0;
+        transition: all 500ms ease-in-out;
+
+        &--success {
+            background-color: $color-success;
+            opacity: 1;
+        }
+
+        &--failure {
+            background-color: $color-danger;
+            opacity: 1;
+        }
     }
 }
 
