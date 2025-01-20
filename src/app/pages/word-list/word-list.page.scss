@@ -47,6 +47,7 @@ $max-width: 450px;
 
 .hide {
     opacity: 0;
+    z-index: -1;
 }
 
 @media screen and (max-width: $screen-lg) {
