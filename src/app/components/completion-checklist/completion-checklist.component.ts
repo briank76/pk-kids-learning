@@ -32,10 +32,10 @@ export class CompletionChecklistComponent extends HTMLElement {
                 const listParent = chkbox?.parentElement?.parentElement?.parentElement;
                 if (listParent) {
                     if (chkbox.checked) {
-                        listParent.classList.remove('list-item-incomplete')
+                        listParent.classList.remove('list-item-incomplete');
                         listParent.classList.add('list-item-complete');
                     } else {
-                        listParent.classList.remove('list-item-complete')
+                        listParent.classList.remove('list-item-complete');
                         listParent.classList.add('list-item-incomplete');
                     }
                 } else {

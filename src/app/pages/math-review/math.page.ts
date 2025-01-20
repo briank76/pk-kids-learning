@@ -6,7 +6,7 @@ import * as scssContent from 'bundle-text:./math.page.scss';
 
 
 export class MathPage extends PageBase implements IPageComponent {
-    private selectedFunction: MathFunction = "Add"
+    private selectedFunction: MathFunction = "Add";
     private currentQuestion: MathNumbersModel;
 
     constructor() {
@@ -34,7 +34,7 @@ export class MathPage extends PageBase implements IPageComponent {
                 this.selectedFunction = func.value as MathFunction;
                 this.createEquation();
             } else {
-                console.log('error finding mathFunction on page')
+                console.log('error finding mathFunction on page');
             }
         });
     }
@@ -82,7 +82,7 @@ export class MathPage extends PageBase implements IPageComponent {
 
     private createEquation(): void {
         const model = this.generateNewMathQuestion();
-        let sign = '+'
+        let sign = '+';
         if (model.function === 'Subtract') {
             sign = '-';   
         }
