@@ -115,7 +115,7 @@ export class SpellingReviewPage extends PageBase implements IPageComponent {
         const letterOutput = document.getElementById('letterOutput') as HTMLInputElement;
         if (letterOutput) {
             if (!letter) {
-                letter = '&nbsp;'
+                letter = '&nbsp;';
                 letterOutput.innerHTML = letter;
             } else {
                 letterOutput.textContent = letter;

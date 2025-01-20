@@ -30,7 +30,7 @@ export class NavMenuComponent extends HTMLElement {
                     menuState.checked = false;
                 }
                 if (e && e.currentTarget) {
-                    const ct = e.currentTarget as HTMLAnchorElement
+                    const ct = e.currentTarget as HTMLAnchorElement;
                     routingModule.navigate(ct.href);
                 }
             })

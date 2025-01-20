@@ -15,7 +15,7 @@ class RoutingModule {
     private routingTable = new RoutingTable();
     private currentUrl: string;
     private previousUrl: string;
-    private readonly defaultRouteIndicator = '**'
+    private readonly defaultRouteIndicator = '**';
     private routeSubject = new Subject();
 
 
@@ -42,7 +42,7 @@ class RoutingModule {
                 }
                 this.routeSubject.next(primaryRoute ? primaryRoute : defaultRoute);
             } else {
-                this.routeSubject.error('failed to find path')
+                this.routeSubject.error('failed to find path');
             }
         } catch (err) {
             this.routeSubject.error(err);
