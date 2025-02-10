@@ -29,7 +29,6 @@ export class MathPage extends PageBase implements IPageComponent {
     private addEventListenerQuestionType(): void {
         document.getElementById('mathFunction')?.addEventListener('change', (e) => {
             const func = e.target as HTMLSelectElement;
-                console.log(func);
             if (func) {
                 this.selectedFunction = func.value as MathFunction;
                 this.createEquation();
@@ -40,14 +39,24 @@ export class MathPage extends PageBase implements IPageComponent {
     }
 
     private addEventListenerCheckAnswer(): void {
-        document.getElementById('checkAnswer')?.addEventListener('click', () => {
-            const input = (document.getElementById('total') as HTMLInputElement).value;
-            if (input && this.currentQuestion && input === this.currentQuestion.total.toString()) {
-                this.setMessage('Correct', true);
-            } else {
-                this.setMessage('Please try again', false);
+        document.getElementById('total')?.addEventListener('keyup', (e: KeyboardEvent) => {
+            if (e.key === 'Enter') {
+                this.checkAnswer();
             }
         });
+
+        document.getElementById('checkAnswer')?.addEventListener('click', () => {
+            this.checkAnswer();
+        });
+    }
+
+    private checkAnswer(): void {
+        const ans = (document.getElementById('total') as HTMLInputElement).value;
+        if (ans && this.currentQuestion && ans === this.currentQuestion.total.toString()) {
+            this.setMessage('Correct', true);
+        } else {
+            this.setMessage('Please try again', false);
+        }
     }
 
     private addEventListenerNextQuestion(): void {
