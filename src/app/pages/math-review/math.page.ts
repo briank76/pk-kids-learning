@@ -138,8 +138,8 @@ export class MathPage extends PageBase implements IPageComponent {
     // generate number between 0-10
     private createModel(): MathNumbersModel {
         const model = new MathNumbersModel();
-        const firstNo = Math.floor(Math.random() * 11); 
-        const secondNo = Math.floor(Math.random() * 11); 
+        const firstNo = this.getRandomIntInclusive(4, 10);
+        const secondNo = this.getRandomIntInclusive(1, 10);
 
         if (firstNo > secondNo) {
             model.topNumber = firstNo;
@@ -150,4 +150,10 @@ export class MathPage extends PageBase implements IPageComponent {
         }
         return model;
     }
+
+    private getRandomIntInclusive(min: number, max: number): number {
+        const minCeiled = Math.ceil(min);
+        const maxFloored = Math.floor(max);
+        return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
+    } 
 }
