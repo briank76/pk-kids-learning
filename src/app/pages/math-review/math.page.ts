@@ -3,11 +3,13 @@ import { PageBase } from "../../page.base";
 import { IPageComponent } from "../../page.interface";
 import * as htmlContent from 'bundle-text:./math.page.html';
 import * as scssContent from 'bundle-text:./math.page.scss';
+import { LineChartNumbers } from "./line-number/line-chart-number";
 
 
 export class MathPage extends PageBase implements IPageComponent {
     private selectedFunction: MathFunction = "Add";
     private currentQuestion: MathNumbersModel;
+    private lineChartNumbers: LineChartNumbers;
 
     constructor() {
         super();
@@ -23,6 +25,7 @@ export class MathPage extends PageBase implements IPageComponent {
         if (func) {
             this.selectedFunction = func.value as MathFunction;
         }
+        this.lineChartNumbers = new LineChartNumbers('lineChartCanvas');
         this.createEquation();
     }
 
@@ -97,6 +100,8 @@ export class MathPage extends PageBase implements IPageComponent {
         }
         model.equation = model.topNumber + ' ' + sign + ' ' + model.bottomNumber + ' = ';
         this.setEquation(model);
+        this.lineChartNumbers.update(model);
+        
     }
 
     private generateNewMathQuestion(): MathNumbersModel {
