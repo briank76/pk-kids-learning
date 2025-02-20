@@ -6,19 +6,65 @@ export class LineChartNumbers {
     private canvas: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D;
     private mathModel: MathNumbersModel;
-    private radius = 20;
-    private xOffset = 90;
-    private xInitalOffset = 35;
-
+    private readonly defaultRadius = 20;
+    private readonly defaultxOffset = 90;
+    private readonly defaultxInitalOffset = 35;
+    private readonly defaultCanvasWidth = 1000;
+    private readonly defaultCanvasHeight = 150;
+    private readonly defaultLineArc = 45;
+    private readonly defaultChartNumberFontSize = 20;
+    private readonly minSize = 500;
+    private radius: number;
+    private xOffset: number;
+    private xInitalOffset: number;
+    private lineArc: number;
+    private chartNumberFontSize: number;
+    
     constructor(canvasId: string) {
         this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
         this.ctx = this.canvas.getContext('2d')!;
         this.lineNumbers = [];
+        this.setCanvasSize();
         this.addEventListeners();
+    }
+
+    // set the canvas size based on the screen size
+    private setCanvasSize(): void {
+        const currentWidth = document.documentElement.clientWidth;
+        if (currentWidth < 1000) {
+            const floorSize = Math.floor(currentWidth / 100) * 100;
+            // hide canvas if screen is too small
+            if (floorSize >= this.minSize) {
+                this.canvas.height = this.defaultCanvasHeight;
+                const resizePercent = floorSize / this.defaultCanvasWidth;
+                this.radius = this.defaultRadius * resizePercent;
+                this.xOffset = this.defaultxOffset * resizePercent;
+                this.xInitalOffset = this.defaultxInitalOffset * resizePercent;
+                this.chartNumberFontSize = this.defaultChartNumberFontSize;
+                this.lineArc = this.defaultLineArc * resizePercent;
+                this.canvas.width = floorSize;
+            } else {
+                this.canvas.width = 0;
+                this.canvas.height = 0;
+            }
+        } else {
+            this.radius = this.defaultRadius;
+            this.xOffset = this.defaultxOffset;
+            this.xInitalOffset = this.defaultxInitalOffset;
+            this.lineArc = this.defaultLineArc;
+            this.chartNumberFontSize = this.defaultChartNumberFontSize;
+            this.canvas.width = this.defaultCanvasWidth;
+            this.canvas.height = this.defaultCanvasHeight;
+        }
     }
 
     // add event listeners to the canvas
     private addEventListeners(): void {
+        window.addEventListener('resize', () => {
+            this.setCanvasSize();
+            this.draw();
+        });
+
         this.canvas.addEventListener('click', (e) => {
             const rect = this.canvas.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -36,7 +82,8 @@ export class LineChartNumbers {
                     // ignore the top number
                     continue;
                 }
-                if (x >= ln.xPosition - this.radius && x <= ln.xPosition + this.radius && y >= ln.yPosition - this.radius && y <= ln.yPosition + this.radius) {
+                if (x >= ln.xPosition - this.radius && x <= ln.xPosition + this.radius && 
+                    y >= ln.yPosition - this.radius && y <= ln.yPosition + this.radius) {
                     ln.isClicked = !ln.isClicked;
                     unclickAllNumbersAfter = !ln.isClicked;
                 } else if (unclickAllNumbersAfter) {
@@ -89,7 +136,7 @@ export class LineChartNumbers {
             
             // draw circle
             this.ctx.beginPath();
-            this.ctx.arc(currentOffset, this.canvas.height / 1.4, this.radius, 0, Math.PI * 2, false);
+            this.ctx.arc(currentOffset, this.canvas.height / 1.4, this.defaultRadius, 0, Math.PI * 2, false);
             if (this.mathModel.topNumber === ln.chartNumber) {
                 this.ctx.strokeStyle = 'orange';
             } else if (ln.isClicked) {
@@ -104,8 +151,8 @@ export class LineChartNumbers {
             ln.yPosition = this.canvas.height / 1.4;
 
             // draw number
-            // Calculate text metrics for centering
-            this.ctx.font = '20px Arial';
+            // Calculate text metrics for centering the number inside the circle
+            this.ctx.font = `${this.chartNumberFontSize}px Arial`;
             const textMetrics = this.ctx.measureText(ln.chartNumber.toString());
             const textWidth = textMetrics.width;
             const textHeight = textMetrics.fontBoundingBoxAscent;
@@ -117,9 +164,9 @@ export class LineChartNumbers {
             if (this.mathModel.topNumber !== ln.chartNumber && ln.isClicked) {
                 this.ctx.beginPath();
                 const offset = this.mathModel.function === 'Add' ? 
-                                currentOffset - this.xInitalOffset - 10 :
-                                currentOffset + this.xInitalOffset + 10;
-                this.ctx.arc(offset, this.canvas.height / 2.5, 45, 0, Math.PI, true);
+                                currentOffset - this.xInitalOffset - (this.radius / 2) :
+                                currentOffset + this.xInitalOffset + (this.radius / 2);
+                this.ctx.arc(offset, this.canvas.height / 2.5, this.lineArc, 0, Math.PI, true);
                 this.ctx.strokeStyle = ln.isValid ? '#00ff00' : '#ff0000';
                 this.ctx.lineWidth = 3;
                 this.ctx.stroke();
