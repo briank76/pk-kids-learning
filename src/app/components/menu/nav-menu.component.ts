@@ -1,4 +1,5 @@
 import { routingModule } from "../../../routing/routing";
+import { menuDisplayService } from "../../services/menu-display.service";
 import * as htmlContent from 'bundle-text:./nav-menu.component.html';
 import * as scssContent from 'bundle-text:./nav-menu.component.scss';
 
@@ -18,6 +19,7 @@ export class NavMenuComponent extends HTMLElement {
             shadow.appendChild(x);
         });
         this.addEventListeners(shadow);
+        this.addMenuCheckedEventListener(shadow);
     }
 
     private addEventListeners(shadow: ShadowRoot) {
@@ -29,12 +31,21 @@ export class NavMenuComponent extends HTMLElement {
                 if (menuState) {
                     menuState.checked = false;
                 }
+
                 if (e && e.currentTarget) {
                     const ct = e.currentTarget as HTMLAnchorElement;
                     routingModule.navigate(ct.href);
                 }
             })
         );
+    }
+
+    private addMenuCheckedEventListener(shadow: ShadowRoot) {
+        const menuState = shadow.getElementById('menustate') as HTMLInputElement;
+        menuState.addEventListener('change', (e) => {
+            const checked = (e.target as HTMLInputElement).checked;
+            menuDisplayService.setMenuState(checked);
+        });
     }
 }
 

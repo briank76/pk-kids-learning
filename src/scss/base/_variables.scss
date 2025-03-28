@@ -138,4 +138,5 @@ $color-black: #000;
 $border: get-setting(default, border);
 $border-radius: get-setting(default, border-radius);
 $box-bg: $color-primary-light;
+$box-shadow: get-setting(default, box-shadow);
 $box-bg-fade: linear-gradient(to bottom, $color-primary-dark 0%, $color-secondary-light 100%);

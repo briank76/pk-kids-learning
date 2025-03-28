@@ -1,0 +1,41 @@
+<div class="st-container">
+    <div class="st-container__title">
+        <h1>Spelling Test Flashcards</h1>
+    </div>
+    
+    <div id="startTest" class="st-container__btn">
+        <button id="btnStartTest" class="btn btn-primary">Start Test</button>
+    </div>
+
+    <div id="spellingTest" style="display:grid;" class="hide">
+        <div id="cardContainer" class="st-container__card">
+            <div id="stCard" class="card">
+                <div class="st-container__card--content card-face">
+                    <div id="stWord" class="st-container__card--content-word"></div>
+                </div>
+                <div class="st-container__card--content card-face card-face__left card-face__back-content">
+                    <label for="stInput">Enter your answer here:</label>
+                    <input type="text" id="stInput" class="st-container__card--content-input" autocomplete="off" placeholder="Answer">
+                </div>
+            </div>
+            <label id="lblCount"></label>
+        </div>
+        
+        <div class="st-container__btn">
+            <button id="btnFlipCard" class="btn btn-primary">Spell word</button>
+            <button id="btnHearWord" class="btn btn-primary">Listen to word</button>
+            <button id="btnCheckAnswer" class="btn btn-primary">Check Answer</button>
+            <button id="btnNextWord" class="btn btn-primary">Next Word</button>
+        </div>
+    </div>
+
+    <div id="testResulst" class="st-container__results hide">
+        <div class="st-container__results--title">
+            <h3>Test Results</h3>
+        </div>
+        <div class="st-container__results--content">
+            <div id="stResults" class="st-container__results--content-results"></div>
+        </div>
+    </div>
+    
+</div>

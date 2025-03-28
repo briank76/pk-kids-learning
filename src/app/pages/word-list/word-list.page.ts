@@ -48,33 +48,31 @@ export class WordListPage extends PageBase implements IPageComponent
                     const wordDiv = document.getElementById(wordDivId);
                     if (btn.textContent?.toLowerCase() === 'hide') {
                         btn.textContent = 'Show';
-                        wordDiv?.classList.add('hide');
+                        wordDiv?.classList.add('hide-word');
                     } else {
                         btn.textContent = 'Hide';
-                        wordDiv?.classList.remove('hide');
+                        wordDiv?.classList.remove('hide-word');
                     }
                 });
             });
         }
     }
-
+    
     private getList(): string[] {
-        const words: string[] = ['do', 
-                                 'be',
-                                 'they',
-                                 'can',
-                                 'cat',
-                                 'mouse',
-                                 'will',
-                                 'cow',
-                                 'when',
-                                 'bus',
-                                 'him',
-                                 'for',
-                                 'lot',
-                                 'her',
-                                 'or',
-                                 'not'
+        const words: string[] = ['arm', 
+                                 'farm',
+                                 'yard',
+                                 'art',
+                                 'jar',
+                                 'bar',
+                                 'barn',
+                                 'bark',
+                                 'card',
+                                 'yarn',
+                                 'dry',
+                                 'pie',
+                                 'new',
+                                 'once'
                                 ];
         return words;
     }

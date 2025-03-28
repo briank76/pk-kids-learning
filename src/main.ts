@@ -1,6 +1,7 @@
 import { routingModule } from "./routing/routing";
 import "./app/components/completion-checklist/completion-checklist.component";
 import "./app/components/menu/nav-menu.component";
+import "./app/services/menu-display.service";
 
 document.addEventListener("DOMContentLoaded", () => {  
     const myapp = document.getElementById('app') as HTMLDivElement;

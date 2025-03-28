@@ -1,0 +1,65 @@
+@import '../../../scss/base/variables';
+
+.st-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-content:  center;
+
+    &__title {
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    &__card {
+        display: inline-grid;
+        justify-self: center;
+        width: 350px;
+        height: 175px;
+        padding: 1rem;
+        perspective: 1500px;
+        z-index: 1;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+
+        &--disabled {
+            z-index: -1;
+            opacity: .5;
+        }
+
+        &--content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.25rem;
+
+            &-input {
+                width: 90%;
+                padding: .5rem;
+                font-size: 1.25rem;
+                text-align: center;
+                border: 1px solid #ccc;
+                border-radius: .25rem;
+            }
+
+            &-word {
+                display: flex;
+                flex-wrap: wrap;
+                height: 100%;
+                font-size: 3rem;
+                justify-content: center;
+                align-content: center;
+            }
+        }
+    }
+
+    &__btn {
+        display: inline-grid;
+        justify-self: center;
+        min-width: 300px;
+        row-gap: .25rem;
+    }
+}
